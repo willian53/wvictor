@@ -190,18 +190,20 @@ function Header() {
   return (
     <header style={{
       position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-      padding: "12px clamp(16px, 5vw, 40px)",
+      padding: "12px clamp(12px, 5vw, 40px)",
       display: "flex", alignItems: "center", justifyContent: "space-between",
       background: scrolled ? "rgba(0,0,0,0.96)" : "transparent",
       borderBottom: scrolled ? "1px solid rgba(0,240,255,0.1)" : "1px solid transparent",
       backdropFilter: scrolled ? "blur(20px)" : "none",
       transition: "all 0.4s ease",
+      minHeight: "60px",
+      gap: "clamp(8px, 2vw, 16px)",
     }}>
-      <img src={aurenLogo} alt="Auren Digital" style={{ height: "clamp(30px, 5vw, 44px)", objectFit: "contain" }} />
+      <img src={aurenLogo} alt="Auren Digital" style={{ height: "clamp(28px, 5vw, 44px)", objectFit: "contain", flexShrink: 0 }} />
 
       <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
         <button style={{
-          padding: "8px clamp(12px, 3vw, 22px)",
+          padding: "8px clamp(10px, 3vw, 22px)",
           background: "transparent",
           border: "1px solid #00f0ff",
           color: "#00f0ff",
@@ -214,6 +216,7 @@ function Header() {
           boxShadow: "0 0 15px rgba(0,240,255,0.2)",
           transition: "all 0.3s ease",
           whiteSpace: "nowrap",
+          flexShrink: 0,
         }}
           onMouseEnter={e => {
             (e.currentTarget as HTMLButtonElement).style.background = "rgba(0,240,255,0.1)";
@@ -294,7 +297,7 @@ function HeroSection() {
         </p>
 
         {/* CTA Buttons */}
-        <div style={{ display: "flex", gap: "clamp(10px, 3vw, 20px)", justifyContent: "center", flexWrap: "wrap" }}>
+        <div className="hero-btns" style={{ display: "flex", gap: "clamp(10px, 3vw, 20px)", justifyContent: "center", flexWrap: "wrap" }}>
           <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
             <button
               style={{
@@ -370,7 +373,7 @@ function StatsSection() {
   return (
     <section style={{ padding: "clamp(48px, 8vw, 80px) clamp(16px, 5vw, 40px)", background: "rgba(0,0,0,0.5)", borderTop: "1px solid rgba(0,240,255,0.07)", borderBottom: "1px solid rgba(0,240,255,0.07)", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(0,240,255,0.02) 0%, transparent 50%, rgba(255,0,255,0.02) 100%)" }} />
-      <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "clamp(28px, 5vw, 50px)", position: "relative", zIndex: 1 }}>
+      <div data-stats-grid style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "clamp(28px, 5vw, 50px)", position: "relative", zIndex: 1 }}>
         {stats.map((s, i) => (
           <Reveal key={s.label} delay={0.1 * i}>
             <div style={{ textAlign: "center" }}>
@@ -398,7 +401,7 @@ function AuthoritySection() {
   return (
     <section style={{ padding: "clamp(64px, 10vw, 120px) clamp(16px, 5vw, 40px)", position: "relative", overflow: "hidden" }}>
       <CyberpunkGrid />
-      <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "clamp(48px, 7vw, 80px)", alignItems: "center", position: "relative", zIndex: 2 }}>
+      <div data-authority-grid style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "clamp(48px, 7vw, 80px)", alignItems: "center", position: "relative", zIndex: 2 }}>
 
         {/* Photo */}
         <Reveal>
@@ -540,7 +543,7 @@ function ServicesSection() {
           </div>
         </Reveal>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "clamp(12px, 2.5vw, 20px)" }}>
+        <div data-services-grid style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "clamp(12px, 2.5vw, 20px)" }}>
           {services.map((s, i) => <ServiceCard key={s.title} {...s} index={i} />)}
         </div>
       </div>
@@ -644,7 +647,11 @@ const globalStyles = `
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+  html { 
+    scroll-behavior: smooth; 
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
 
   body {
     background: #020408;
@@ -654,6 +661,18 @@ const globalStyles = `
     cursor: crosshair;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Prevent text enlargement on landscape */
+  @supports (-webkit-touch-callout: none) {
+    html { font-size: 16px !important; }
   }
 
   ::selection { background: rgba(0,240,255,0.2); color: #00f0ff; }
@@ -662,9 +681,26 @@ const globalStyles = `
   ::-webkit-scrollbar-track { background: #000; }
   ::-webkit-scrollbar-thumb { background: #00f0ff; box-shadow: 0 0 6px #00f0ff; }
 
-  img { max-width: 100%; display: block; }
+  img { max-width: 100%; display: block; height: auto; }
 
   a { text-decoration: none; }
+
+  button { 
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Prevent tap highlight on mobile */
+  button, a { 
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Responsive text overflow */
+  h1, h2, h3, p { 
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
 
   @keyframes gridMove {
     0% { transform: translate(0, 0); }
@@ -704,27 +740,110 @@ const globalStyles = `
     100% { opacity: 1; transform: translateY(0) skewY(0deg); }
   }
 
-  /* ─── Mobile ─── */
-  @media (max-width: 480px) {
-    body { cursor: auto; }
+  /* ─── RESPONSIVE DESIGN ─── */
+  
+  /* Extra Small phones (320px - 374px) */
+  @media (max-width: 374px) {
+    body { cursor: auto; font-size: 14px; }
+    [data-hero] { 
+      padding-top: clamp(30px, 5vw, 40px) !important;
+      padding-bottom: clamp(20px, 4vw, 30px) !important;
+      min-height: 80vh !important;
+    }
+    button { padding: clamp(10px, 2vw, 14px) clamp(14px, 3vw, 20px) !important; }
   }
 
-  @media (max-width: 768px) {
-    /* Reduce hero top padding on tablets and smaller */
+  /* Small phones (375px - 479px) */
+  @media (min-width: 375px) and (max-width: 479px) {
+    body { cursor: auto; }
     [data-hero] { 
-      padding-top: clamp(50px, 8vw, 70px) !important;
-      padding-bottom: clamp(40px, 6vw, 60px) !important;
+      padding-top: clamp(35px, 6vw, 50px) !important;
+      padding-bottom: clamp(25px, 5vw, 35px) !important;
     }
   }
 
-  @media (max-width: 520px) {
-    /* Stack hero buttons vertically on very small screens */
-    .hero-btns { flex-direction: column !important; align-items: center !important; }
-    
-    /* Further reduce hero padding on mobile */
+  /* Larger phones (480px - 599px) */
+  @media (min-width: 480px) and (max-width: 599px) {
     [data-hero] { 
-      padding-top: clamp(40px, 6vw, 50px) !important;
-      padding-bottom: clamp(30px, 5vw, 40px) !important;
+      padding-top: clamp(50px, 8vw, 60px) !important;
+      padding-bottom: clamp(35px, 6vw, 45px) !important;
+    }
+  }
+
+  /* Small tablets (600px - 767px) */
+  @media (min-width: 600px) and (max-width: 767px) {
+    [data-hero] { 
+      padding-top: clamp(70px, 10vw, 90px) !important;
+      padding-bottom: clamp(50px, 7vw, 70px) !important;
+    }
+  }
+
+  /* Medium & Large tablets (768px - 1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    [data-hero] { 
+      padding-top: clamp(80px, 12vw, 110px) !important;
+      padding-bottom: clamp(60px, 8vw, 90px) !important;
+    }
+  }
+
+  /* General tablet and down adjustments */
+  @media (max-width: 767px) {
+    /* Stack buttons on smaller screens */
+    .hero-btns { flex-direction: column !important; align-items: stretch !important; gap: clamp(8px, 2vw, 12px) !important; }
+    
+    /* Adjust stats grid */
+    [data-stats-grid] { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important; }
+    
+    /* Services grid responsive */
+    [data-services-grid] { grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)) !important; }
+    
+    /* Authority section stack vertical */
+    [data-authority-grid] { grid-template-columns: 1fr !important; }
+    
+    /* Adjust header */
+    header { padding: 10px clamp(12px, 4vw, 24px) !important; }
+    header button { flex-shrink: 0; }
+  }
+
+  /* Large tablets and up */
+  @media (min-width: 1024px) {
+    [data-services-grid] { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important; }
+    [data-authority-grid] { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important; }
+  }
+
+  /* Very small screens optimization */
+  @media (max-width: 320px) {
+    body { 
+      font-size: 13px;
+      cursor: auto;
+    }
+    [data-hero] { 
+      padding: clamp(28px, 4vw, 35px) clamp(10px, 3vw, 16px) !important;
+      min-height: 70vh !important;
+    }
+  }
+
+  /* Improve button touch targets on mobile */
+  @media (max-width: 599px) {
+    button {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    a button {
+      width: 100%;
+    }
+    .hero-btns a {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  /* Optimize viewport meta for mobile */
+  @media (orientation: landscape) and (max-height: 500px) {
+    [data-hero] {
+      min-height: auto !important;
+      padding-top: clamp(20px, 3vw, 30px) !important;
+      padding-bottom: clamp(20px, 3vw, 30px) !important;
     }
   }
 `;
