@@ -242,7 +242,7 @@ function HeroSection() {
   }, []);
 
   return (
-    <section style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "clamp(90px, 14vw, 120px) clamp(16px, 5vw, 40px) clamp(60px, 8vw, 80px)", overflow: "hidden" }}>
+    <section data-hero style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "clamp(90px, 14vw, 120px) clamp(16px, 5vw, 40px) clamp(60px, 8vw, 80px)", overflow: "hidden" }}>
       <CyberpunkGrid />
       <Particles />
 
@@ -709,9 +709,23 @@ const globalStyles = `
     body { cursor: auto; }
   }
 
+  @media (max-width: 768px) {
+    /* Reduce hero top padding on tablets and smaller */
+    [data-hero] { 
+      padding-top: clamp(50px, 8vw, 70px) !important;
+      padding-bottom: clamp(40px, 6vw, 60px) !important;
+    }
+  }
+
   @media (max-width: 520px) {
     /* Stack hero buttons vertically on very small screens */
     .hero-btns { flex-direction: column !important; align-items: center !important; }
+    
+    /* Further reduce hero padding on mobile */
+    [data-hero] { 
+      padding-top: clamp(40px, 6vw, 50px) !important;
+      padding-bottom: clamp(30px, 5vw, 40px) !important;
+    }
   }
 `;
 
