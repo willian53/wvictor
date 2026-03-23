@@ -531,7 +531,7 @@ function ServicesSection() {
               clipPath: "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))",
             }}>
               <Zap size={11} style={{ color: "#ff00ff", flexShrink: 0 }} />
-              <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: "clamp(0.48rem, 1.1vw, 0.6rem)", letterSpacing: "0.18em", color: "#ff00ff" }}>ARSENAL COMPLETO</span>
+              <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: "clamp(0.62rem, 1.5vw, 1.08rem)", letterSpacing: "0.18em", color: "#ff00ff" }}>ARSENAL COMPLETO</span>
             </div>
             <h2 style={{ fontFamily: "'Orbitron', sans-serif", fontSize: "clamp(1.4rem, 4vw, 2.6rem)", fontWeight: 900, color: "#fff", lineHeight: 1.2, marginBottom: 12 }}>
               O QUE FAZEMOS POR VOCÊ
@@ -750,6 +750,18 @@ const globalStyles = `
       min-height: 80vh !important;
     }
     button { padding: clamp(10px, 2vw, 14px) clamp(14px, 3vw, 20px) !important; }
+    
+    /* Headline compacta em telas muito pequenas */
+    [data-hero] h1 {
+      margin-bottom: 1px !important;
+      line-height: 0.95 !important;
+    }
+    
+    [data-hero] h2 {
+      margin-bottom: clamp(12px, 3vw, 18px) !important;
+      margin-top: 2px !important;
+      line-height: 1.1 !important;
+    }
   }
 
   /* Small phones (375px - 479px) */
@@ -834,6 +846,22 @@ const globalStyles = `
     .hero-btns a {
       display: block;
       width: 100%;
+    }
+    
+    /* Ajustar espaçamento da headline em mobile */
+    [data-hero] h1 {
+      margin-bottom: 2px !important;
+      line-height: 1.0 !important;
+    }
+    
+    [data-hero] h1:first-of-type {
+      margin-bottom: 0 !important;
+    }
+    
+    [data-hero] h2 {
+      margin-bottom: clamp(16px, 4vw, 24px) !important;
+      margin-top: 4px !important;
+      line-height: 1.2 !important;
     }
   }
 
