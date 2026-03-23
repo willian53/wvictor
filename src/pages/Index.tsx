@@ -346,7 +346,7 @@ function HeroSection() {
               onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 20px rgba(255,0,255,0.2)"; }}
             >
               VER SOLUÇÕES
-              <ChevronDown size={15} />
+              <ChevronDown size={20} />
             </button>
           </a>
         </div>
