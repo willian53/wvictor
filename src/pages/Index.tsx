@@ -297,7 +297,7 @@ function HeroSection() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="hero-btns" style={{ display: "flex", gap: "clamp(10px, 3vw, 20px)", justifyContent: "center", flexWrap: "wrap" }}>
+        <div className="hero-btns" style={{ display: "flex", gap: "clamp(12px, 3.5vw, 24px)", justifyContent: "center", flexWrap: "wrap" }}>
           <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
             <button
               style={{
@@ -352,9 +352,8 @@ function HeroSection() {
         </div>
 
         {/* Scroll indicator */}
-        <div style={{ marginTop: "clamp(48px, 8vw, 80px)", display: "flex", flexDirection: "column", alignItems: "center", gap: 6, opacity: 0.3, animation: "bounce 2s ease-in-out infinite" }}>
-          <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: "0.52rem", letterSpacing: "0.3em", color: "#fff" }}>SCROLL</span>
-          <ChevronDown size={13} color="#fff" />
+        <div style={{ marginTop: "clamp(56px, 10vw, 88px)", display: "flex", flexDirection: "column", alignItems: "center", gap: 4, opacity: 0.3, animation: "bounce 2s ease-in-out infinite" }}>
+          <ChevronDown size={16} color="#fff" />
         </div>
       </div>
     </section>
@@ -371,9 +370,9 @@ function StatsSection() {
   ];
 
   return (
-    <section style={{ padding: "clamp(48px, 8vw, 80px) clamp(16px, 5vw, 40px)", background: "rgba(0,0,0,0.5)", borderTop: "1px solid rgba(0,240,255,0.07)", borderBottom: "1px solid rgba(0,240,255,0.07)", position: "relative", overflow: "hidden" }}>
+    <section style={{ padding: "clamp(56px, 9vw, 88px) clamp(16px, 5vw, 40px)", background: "rgba(0,0,0,0.5)", borderTop: "1px solid rgba(0,240,255,0.07)", borderBottom: "1px solid rgba(0,240,255,0.07)", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(0,240,255,0.02) 0%, transparent 50%, rgba(255,0,255,0.02) 100%)" }} />
-      <div data-stats-grid style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "clamp(28px, 5vw, 50px)", position: "relative", zIndex: 1 }}>
+      <div data-stats-grid style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "clamp(32px, 6vw, 56px)", position: "relative", zIndex: 1 }}>
         {stats.map((s, i) => (
           <Reveal key={s.label} delay={0.1 * i}>
             <div style={{ textAlign: "center" }}>
@@ -401,7 +400,7 @@ function AuthoritySection() {
   return (
     <section style={{ padding: "clamp(64px, 10vw, 120px) clamp(16px, 5vw, 40px)", position: "relative", overflow: "hidden" }}>
       <CyberpunkGrid />
-      <div data-authority-grid style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "clamp(48px, 7vw, 80px)", alignItems: "center", position: "relative", zIndex: 2 }}>
+      <div data-authority-grid style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "clamp(54px, 8vw, 88px)", alignItems: "center", position: "relative", zIndex: 2 }}>
 
         {/* Photo */}
         <Reveal>
@@ -543,7 +542,7 @@ function ServicesSection() {
           </div>
         </Reveal>
 
-        <div data-services-grid style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "clamp(12px, 2.5vw, 20px)" }}>
+        <div data-services-grid style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
           {services.map((s, i) => <ServiceCard key={s.title} {...s} index={i} />)}
         </div>
       </div>
