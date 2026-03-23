@@ -352,7 +352,7 @@ function HeroSection() {
         </div>
 
         {/* Scroll indicator */}
-        <div style={{ marginTop: "clamp(56px, 10vw, 88px)", display: "flex", flexDirection: "column", alignItems: "center", gap: 4, opacity: 0.3, animation: "bounce 2s ease-in-out infinite" }}>
+        <div data-scroll-indicator style={{ marginTop: "clamp(56px, 10vw, 88px)", display: "flex", flexDirection: "column", alignItems: "center", gap: 4, opacity: 0.3, animation: "bounce 2s ease-in-out infinite" }}>
           <ChevronDown size={16} color="#fff" />
         </div>
       </div>
@@ -370,7 +370,7 @@ function StatsSection() {
   ];
 
   return (
-    <section style={{ padding: "clamp(56px, 9vw, 88px) clamp(16px, 5vw, 40px)", background: "rgba(0,0,0,0.5)", borderTop: "1px solid rgba(0,240,255,0.07)", borderBottom: "1px solid rgba(0,240,255,0.07)", position: "relative", overflow: "hidden" }}>
+    <section data-stats style={{ padding: "clamp(56px, 9vw, 88px) clamp(16px, 5vw, 40px)", background: "rgba(0,0,0,0.5)", borderTop: "1px solid rgba(0,240,255,0.07)", borderBottom: "1px solid rgba(0,240,255,0.07)", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(0,240,255,0.02) 0%, transparent 50%, rgba(255,0,255,0.02) 100%)" }} />
       <div data-stats-grid style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "clamp(32px, 6vw, 56px)", position: "relative", zIndex: 1 }}>
         {stats.map((s, i) => (
@@ -862,6 +862,16 @@ const globalStyles = `
       margin-bottom: clamp(16px, 4vw, 24px) !important;
       margin-top: 4px !important;
       line-height: 1.2 !important;
+    }
+    
+    /* Reduzir scroll indicator e espaçamento após Hero */
+    [data-scroll-indicator] {
+      margin-top: clamp(20px, 3vw, 32px) !important;
+    }
+    
+    /* Reduzir padding superior da Stats section em mobile */
+    [data-stats] {
+      padding-top: clamp(28px, 5vw, 40px) !important;
     }
   }
 
