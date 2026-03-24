@@ -531,7 +531,7 @@ function ServicesSection() {
               clipPath: "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))",
             }}>
               <Zap size={11} style={{ color: "#ff00ff", flexShrink: 0 }} />
-              <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: "clamp(0.62rem, 1.5vw, 1.08rem)", letterSpacing: "0.18em", color: "#ff00ff" }}>SOLUÇÕES COMPLETA completas</span>
+              <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: "clamp(0.62rem, 1.5vw, 1.08rem)", letterSpacing: "0.18em", color: "#ff00ff" }}>SOLUÇÕES COMPLETAS</span>
             </div>
             <h2 style={{ fontFamily: "'Orbitron', sans-serif", fontSize: "clamp(1.4rem, 4vw, 2.6rem)", fontWeight: 900, color: "#fff", lineHeight: 1.2, marginBottom: 12 }}>
               O QUE FAZEMOS POR VOCÊ
