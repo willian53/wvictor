@@ -384,7 +384,7 @@ function AuthoritySection() {
         {/* Photo */}
         <Reveal>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <div style={{ position: "relative", width: "clamp(240px, 35vw, 360px)" }}>
+            <div style={{ position: "relative", width: "clamp(230px, 25vw, 350px)" }}>
               {/* Gold accent border */}
               <div style={{ position: "absolute", top: -10, left: -10, right: 10, bottom: 10, borderRadius: 24, border: `2px solid ${C.gold}44`, zIndex: 0 }} />
               <div style={{ position: "absolute", top: 10, left: 10, right: -10, bottom: -10, borderRadius: 24, background: C.accentLight, zIndex: 0 }} />
