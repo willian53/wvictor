@@ -14,6 +14,13 @@ const globalStyles = `
   @keyframes scanDown { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
   @keyframes scanLine { 0% { left: -100%; } 100% { left: 100%; } }
   html, body { overflow-x: hidden; width: 100%; margin: 0; padding: 0; background: #000; }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 767px) {
+    .stats-grid { grid-template-columns: 1fr !important; }
+    .services-grid { grid-template-columns: 1fr !important; }
+    .authority-grid { grid-template-columns: 1fr !important; }
+  }
 `;
 
 function Counter({ target, suffix = "", duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
@@ -130,7 +137,7 @@ export default function LandingPage() {
       <style>{globalStyles}</style>
 
       {/* HEADER */}
-      <header style={{ position: "fixed", top: 0, width: "100%", zIndex: 100, padding: "15px 5%", display: "flex", justifyContent: "space-between", alignItems: "center", background: "rgba(0,0,0,0.8)", backdropFilter: "blur(10px)", borderBottom: "1px solid rgba(0,240,255,0.1)" }}>
+      <header style={{ position: "fixed", top: 0, width: "100%", zIndex: 100, padding: "15px 5%", display: "flex", justifyContent: "space-between", alignItems: "center", background: "rgba(0,0,0,0.8)", backdropFilter: "blur(10px)", borderBottom: "1px solid rgba(0,240,255,0.1)", flexWrap: "wrap" }}>
         <img src={aurenLogo} alt="Logo" style={{ height: "30px" }} />
         <a href={WHATSAPP_LINK} style={{ textDecoration: "none" }}>
           <button style={{ border: "1px solid #00f0ff", background: "transparent", color: "#00f0ff", padding: "8px 16px", fontSize: "clamp(0.6rem, 1vw, 0.8rem)", fontFamily: "'Orbitron'", cursor: "pointer", transition: "all 0.3s" }}>CONTATO</button>
@@ -162,7 +169,7 @@ export default function LandingPage() {
 
       {/* STATS */}
       <section style={{ padding: "clamp(28px, 5vw, 40px) 5%", background: "rgba(0,240,255,0.02)", borderTop: "1px solid rgba(0,240,255,0.1)", borderBottom: "1px solid rgba(0,240,255,0.1)" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "clamp(24px, 4vw, 40px)", maxWidth: "1200px", margin: "0 auto" }}>
+        <div className="stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "clamp(24px, 4vw, 40px)", maxWidth: "clamp(300px, 90vw, 1200px)", margin: "0 auto" }}>
           <Reveal delay={0}><div style={{ textAlign: "center" }}><h2 style={{ fontSize: "clamp(1.8rem, 5vw, 2.8rem)", color: "#00f0ff", margin: "0 0 clamp(12px, 2vw, 16px) 0" }}><Counter target={500} suffix="+" /></h2><p style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.9rem", margin: 0 }}>Clientes Atendidos</p></div></Reveal>
           <Reveal delay={0.1}><div style={{ textAlign: "center" }}><h2 style={{ fontSize: "clamp(1.8rem, 5vw, 2.8rem)", color: "#ff00ff", margin: "0 0 clamp(12px, 2vw, 16px) 0" }}><Counter target={15} suffix="M+" /></h2><p style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.9rem", margin: 0 }}>Reais Movimentados</p></div></Reveal>
           <Reveal delay={0.2}><div style={{ textAlign: "center" }}><h2 style={{ fontSize: "clamp(1.8rem, 5vw, 2.8rem)", color: "#7fff00", margin: "0 0 clamp(12px, 2vw, 16px) 0" }}><Counter target={98} suffix="%" /></h2><p style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.9rem", margin: 0 }}>Taxa de Sucesso</p></div></Reveal>
@@ -171,7 +178,7 @@ export default function LandingPage() {
 
       {/* AUTHORITY */}
       <section style={{ padding: "clamp(56px, 10vw, 80px) 5%", position: "relative" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 60px)", alignItems: "center" }}>
+        <div className="authority-grid" style={{ maxWidth: "clamp(300px, 90vw, 1200px)", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 60px)", alignItems: "center" }}>
           <Reveal delay={0}><div style={{ position: "relative" }}><div style={{ width: "100%", aspectRatio: "1", background: "linear-gradient(135deg, #00f0ff, #ff00ff)", padding: "3px", borderRadius: "12px" }}></div><img src={authorPhoto} alt="Autora" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px", display: "block" }} /></div></Reveal>
           <Reveal delay={0.1}><div><h2 style={{ fontSize: "clamp(1.6rem, 4vw, 2.4rem)", fontFamily: "'Orbitron'", margin: "0 0 clamp(16px, 2vw, 24px) 0", lineHeight: 1.2 }}>Conheça a <span style={{ color: "#00f0ff" }}>Estratégia</span> que está <span style={{ color: "#7fff00" }}>Transformando</span> Negócios</h2><p style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "rgba(255,255,255,0.7)", lineHeight: 1.8, marginBottom: "clamp(16px, 2vw, 24px)" }}>Com mais de 10 anos de experiência em marketing digital, desenvolvemos sistemas que fazem a máquina de vendas rodar sozinha. Seus clientes agendando automaticamente, sua equipe focando no que realmente importa.</p><p style={{ fontSize: "clamp(0.9rem, 1.5vw, 1rem)", color: "rgba(255,255,255,0.7)", lineHeight: 1.8 }}>De agências a profissionais liberais, transformamos estratégias em resultados reais.</p></div></Reveal>
         </div>
@@ -180,8 +187,8 @@ export default function LandingPage() {
       {/* ARSENAL */}
       <section style={{ padding: "clamp(56px, 10vw, 80px) 5%", background: "rgba(0,240,255,0.02)" }}>
         <Reveal><div style={{ textAlign: "center", marginBottom: "clamp(40px, 8vw, 60px)" }}><h2 style={{ fontSize: "clamp(0.62rem, 3vw, 1.08rem)", fontFamily: "'Orbitron'", color: "#7fff00", textTransform: "uppercase", letterSpacing: "2px", margin: "0 0 clamp(8px, 1vw, 16px) 0" }}>ARSENAL COMPLETO</h2></div></Reveal>
-        <p style={{ textAlign: "center", fontSize: "clamp(1rem, 2vw, 1.3rem)", color: "rgba(255,255,255,0.8)", marginBottom: "clamp(40px, 8vw, 60px)", maxWidth: "600px", margin: "0 auto clamp(40px, 8vw, 60px)" }}>Tudo que você precisa para dominar seu mercado</p>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "clamp(24px, 4vw, 32px)", maxWidth: "1400px", margin: "0 auto" }}>
+        <p style={{ textAlign: "center", fontSize: "clamp(1rem, 2vw, 1.3rem)", color: "rgba(255,255,255,0.8)", marginBottom: "clamp(40px, 8vw, 60px)", maxWidth: "clamp(300px, 90vw, 600px)", margin: "0 auto clamp(40px, 8vw, 60px)" }}>Tudo que você precisa para dominar seu mercado</p>
+        <div className="services-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "clamp(24px, 4vw, 32px)", maxWidth: "clamp(300px, 90vw, 1400px)", margin: "0 auto" }}>
           <ServiceCard icon={CalendarCheck} title="Agendamentos Automáticos" description="Sistema inteligente que qualifica leads e marca reuniões 24/7 sem sua intervenção." index={0} />
           <ServiceCard icon={Users} title="Gestão de Clientes" description="CRM poderosa integrada com seus canais para nunca perder um lead." index={1} />
           <ServiceCard icon={BarChart3} title="Relatórios em Tempo Real" description="Dashboards que mostram exatamente o que está funcionando em seu negócio." index={2} />
@@ -194,7 +201,7 @@ export default function LandingPage() {
       {/* CTA */}
       <section style={{ padding: "clamp(56px, 10vw, 80px) 5%", textAlign: "center", position: "relative" }}>
         <CyberpunkGrid />
-        <div style={{ position: "relative", zIndex: 1, maxWidth: "800px", margin: "0 auto" }}>
+        <div style={{ position: "relative", zIndex: 1, maxWidth: "clamp(300px, 90vw, 800px)", margin: "0 auto" }}>
           <Reveal><h2 style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)", fontFamily: "'Orbitron'", marginBottom: "clamp(16px, 2vw, 24px)" }}>Pronto para <span style={{ color: "#00f0ff" }}>Ativar</span> sua Máquina?</h2></Reveal>
           <Reveal delay={0.1}><p style={{ fontSize: "clamp(0.95rem, 1.8vw, 1.2rem)", color: "rgba(255,255,255,0.7)", marginBottom: "clamp(24px, 4vw, 40px)" }}>Começamos com uma análise gratuita para entender seu negócio. Depois, criamos uma estratégia personalizada.</p></Reveal>
           <Reveal delay={0.2}><a href={WHATSAPP_LINK} style={{ textDecoration: "none" }}><button style={{ background: "linear-gradient(135deg, #00f0ff, #7fff00)", color: "#000", border: "none", padding: "clamp(14px, 2vw, 18px) clamp(32px, 5vw, 48px)", fontFamily: "'Orbitron'", fontWeight: "bold", fontSize: "clamp(0.9rem, 1.5vw, 1.1rem)", cursor: "pointer", transition: "all 0.3s" }}>AGENDAR ANÁLISE GRATUITA</button></a></Reveal>
