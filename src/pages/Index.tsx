@@ -224,7 +224,7 @@ function HeroSection() {
       position: "relative",
       minHeight: "100vh",
       display: "flex", alignItems: "center", justifyContent: "center",
-      padding: "clamp(100px, 14vw, 130px) clamp(20px, 6vw, 80px) clamp(80px, 10vw, 120px)",
+      padding: "clamp(72px, 10vw, 110px) clamp(20px, 6vw, 80px) clamp(40px, 6vw, 80px)",
       background: `linear-gradient(160deg, ${C.bg} 0%, #EEF2FC 50%, ${C.bgAlt} 100%)`,
       overflow: "hidden",
       textAlign: "center",
@@ -260,27 +260,29 @@ function HeroSection() {
             fontFamily: "'Playfair Display', serif", fontWeight: 900,
             fontSize: "clamp(2rem, 7vw, 5rem)", lineHeight: 1.08,
             color: C.accent,
+            textShadow: "none",
             animation: "wordIn 0.5s ease forwards",
           }}>
             {words[wordIndex]}
           </h1>
         </div>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: "clamp(1.1rem, 3vw, 2.2rem)", color: C.textMuted, marginBottom: "clamp(20px, 4vw, 32px)", lineHeight: 1.3 }}>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: "clamp(1.1rem, 3vw, 2.2rem)", color: C.textMuted, marginBottom: "clamp(16px, 3vw, 28px)", lineHeight: 1.3 }}>
           para Estética e Bem-Estar
         </h2>
 
-        <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)", color: C.textMuted, lineHeight: 1.9, maxWidth: "min(580px, 92vw)", margin: "0 auto clamp(36px, 5vw, 52px)" }}>
+        <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)", color: C.textMuted, lineHeight: 1.9, maxWidth: "min(580px, 92vw)", margin: "0 auto clamp(24px, 4vw, 40px)" }}>
           Atraímos clientes qualificados na sua região e automatizamos o atendimento pelo WhatsApp com Inteligência Artificial e tráfego de alta performance.
         </p>
 
         {/* CTAs */}
-        <div style={{ display: "flex", gap: "clamp(10px, 2.5vw, 16px)", justifyContent: "center", flexWrap: "wrap" }}>
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, width: "100%" }}>
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" style={{ width: "min(340px, 90vw)" }}>
             <button style={{
-              display: "flex", alignItems: "center", gap: 9,
-              padding: "clamp(13px, 2vw, 17px) clamp(24px, 4vw, 36px)",
+              width: "100%",
+              display: "flex", alignItems: "center", justifyContent: "center", gap: 9,
+              padding: "15px 28px",
               background: C.accent, color: C.white, border: "none", borderRadius: 100,
-              fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.82rem, 1.4vw, 0.92rem)", fontWeight: 600,
+              fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.88rem, 1.4vw, 0.92rem)", fontWeight: 600,
               cursor: "pointer", boxShadow: "0 6px 24px rgba(26,86,219,0.35)",
               transition: "all 0.25s ease", whiteSpace: "nowrap",
             }}
@@ -292,13 +294,14 @@ function HeroSection() {
               <ArrowRight size={16} />
             </button>
           </a>
-          <a href="#services">
+          <a href="#services" style={{ width: "min(340px, 90vw)" }}>
             <button style={{
-              display: "flex", alignItems: "center", gap: 9,
-              padding: "clamp(13px, 2vw, 17px) clamp(24px, 4vw, 36px)",
+              width: "100%",
+              display: "flex", alignItems: "center", justifyContent: "center", gap: 9,
+              padding: "15px 28px",
               background: C.white, color: C.text,
               border: `1px solid ${C.border}`, borderRadius: 100,
-              fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.82rem, 1.4vw, 0.92rem)", fontWeight: 500,
+              fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.88rem, 1.4vw, 0.92rem)", fontWeight: 500,
               cursor: "pointer", boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
               transition: "all 0.25s ease", whiteSpace: "nowrap",
             }}
@@ -312,7 +315,7 @@ function HeroSection() {
         </div>
 
         {/* Scroll */}
-        <div style={{ position: "absolute", bottom: "clamp(24px, 4vw, 40px)", left: "50%", animation: "bounce 2.2s ease-in-out infinite", opacity: 0.35 }}>
+        <div style={{ marginTop: 32, display: "flex", justifyContent: "center", animation: "bounce 2.2s ease-in-out infinite", opacity: 0.35 }}>
           <ChevronDown size={20} color={C.textMuted} />
         </div>
       </div>
@@ -330,7 +333,7 @@ const stats = [
 
 function StatsSection() {
   return (
-    <section style={{ background: C.white, padding: "clamp(52px, 8vw, 80px) clamp(20px, 6vw, 80px)" }}>
+    <section style={{ background: C.white, padding: "clamp(36px, 6vw, 80px) clamp(20px, 6vw, 80px)" }}>
       <Divider />
       <div style={{ maxWidth: 1100, margin: "0 auto", paddingTop: "clamp(52px, 8vw, 80px)" }}>
         <Reveal style={{ textAlign: "center", marginBottom: "clamp(40px, 6vw, 64px)" }}>
@@ -375,7 +378,7 @@ function StatsSection() {
 /* ─── AUTHORITY ─── */
 function AuthoritySection() {
   return (
-    <section style={{ background: C.bgAlt, padding: "clamp(64px, 10vw, 110px) clamp(20px, 6vw, 80px)" }}>
+    <section style={{ background: C.bgAlt, padding: "clamp(40px, 8vw, 110px) clamp(20px, 6vw, 80px)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: "clamp(48px, 7vw, 90px)", alignItems: "center" }}>
 
         {/* Photo */}
@@ -507,7 +510,7 @@ function ServiceCard({ icon: Icon, title, description, index }: { icon: any; tit
 
 function ServicesSection() {
   return (
-    <section id="services" style={{ background: C.bg, padding: "clamp(64px, 10vw, 110px) clamp(20px, 6vw, 80px)" }}>
+    <section id="services" style={{ background: C.bg, padding: "clamp(40px, 8vw, 110px) clamp(20px, 6vw, 80px)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal style={{ textAlign: "center", marginBottom: "clamp(44px, 7vw, 72px)" }}>
           <Badge color={C.accent}>Arsenal Completo</Badge>
@@ -530,7 +533,7 @@ function ServicesSection() {
 /* ─── CTA ─── */
 function CTASection() {
   return (
-    <section style={{ background: C.accent, padding: "clamp(72px, 10vw, 110px) clamp(20px, 6vw, 80px)", textAlign: "center", position: "relative", overflow: "hidden" }}>
+    <section style={{ background: C.accent, padding: "clamp(48px, 8vw, 110px) clamp(20px, 6vw, 80px)", textAlign: "center", position: "relative", overflow: "hidden" }}>
       {/* Decorative */}
       <div style={{ position: "absolute", top: "-20%", right: "-5%", width: "clamp(250px, 40vw, 500px)", height: "clamp(250px, 40vw, 500px)", borderRadius: "50%", background: "rgba(255,255,255,0.05)", pointerEvents: "none" }} />
       <div style={{ position: "absolute", bottom: "-20%", left: "-5%", width: "clamp(200px, 30vw, 400px)", height: "clamp(200px, 30vw, 400px)", borderRadius: "50%", background: "rgba(255,255,255,0.04)", pointerEvents: "none" }} />
