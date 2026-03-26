@@ -161,7 +161,7 @@ function Header() {
       backdropFilter: scrolled ? "blur(20px)" : "none",
       transition: "all 0.4s ease",
     }}>
-      <img src={aurenLogo} alt="Auren Digital" style={{ height: "clamp(28px, 4vw, 40px)", objectFit: "contain" }} />
+      <img src={aurenLogo} alt="Auren Digital" style={{ height: "clamp(28px, 4vw, 40px)", objectFit: "contain", backgroundColor: "transparent" }} />
 
       <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
         <button style={{
@@ -513,7 +513,7 @@ function ServicesSection() {
     <section id="services" style={{ background: C.bg, padding: "clamp(40px, 8vw, 110px) clamp(20px, 6vw, 80px)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Reveal style={{ textAlign: "center", marginBottom: "clamp(44px, 7vw, 72px)" }}>
-          <Badge color={C.accent}>Arsenal Completo</Badge>
+          <Badge color={C.accent}>Solução Completa</Badge>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: "clamp(1.6rem, 4vw, 2.6rem)", color: C.text, marginTop: 16, lineHeight: 1.2 }}>
             O que fazemos por você
           </h2>
@@ -590,7 +590,7 @@ function Footer() {
   return (
     <footer style={{ background: "#0A0A0A", padding: "clamp(28px, 4vw, 44px) clamp(20px, 6vw, 80px)" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
-        <img src={aurenLogo} alt="Auren Digital" style={{ height: "clamp(26px, 3.5vw, 36px)", objectFit: "contain", opacity: 0.7 }} />
+        <img src={aurenLogo} alt="Auren Digital" style={{ height: "clamp(26px, 3.5vw, 36px)", objectFit: "contain", opacity: 0.7, backgroundColor: "transparent" }} />
         <p style={{ color: "rgba(255,255,255,0.3)", fontFamily: "'Inter', sans-serif", fontSize: "clamp(0.72rem, 1.3vw, 0.8rem)", textAlign: "center" }}>
           © {new Date().getFullYear()} Auren Digital · Tráfego e Automação para Estética
         </p>
