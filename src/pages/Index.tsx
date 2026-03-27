@@ -577,7 +577,7 @@ function CTASection() {
           </a>
 
           <p style={{ marginTop: 20, color: "rgba(255,255,255,0.45)", fontSize: "clamp(0.68rem, 1.2vw, 0.75rem)", letterSpacing: "0.1em", fontWeight: 500 }}>
-            SEM TAXA DE ADESÃO · RESULTADO EM 30 DIAS
+            SEM TAXA DE ADESÃO.
           </p>
         </Reveal>
       </div>
